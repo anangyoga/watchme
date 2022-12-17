@@ -10,7 +10,6 @@ import PopularMovies from "../components/PopularMovies";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ movies }) {
-  console.log(movies);
   return (
     <>
       <Hero />

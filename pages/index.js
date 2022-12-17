@@ -3,11 +3,12 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import Hero from "../components/Hero";
+import axios from "axios";
+import { server } from "../config";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ movies }) {
-  // this will return the array of the movies from the getStaticProps fn
   console.log(movies);
   return (
     <>
@@ -17,11 +18,10 @@ export default function Home({ movies }) {
 }
 
 export async function getStaticProps() {
-  const movies = [{ name: "hello" }];
+  const res = await axios(`${server}/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`);
+  const movies = res.data;
 
   return {
     props: { movies },
   };
 }
-
-// https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1

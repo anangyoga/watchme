@@ -7,6 +7,7 @@ const Navbar = () => {
       <div
         className="font-bold text-neutral-100 p-4
       max-w-7xl mx-auto container tracking-widest
+      font-neue
       "
       >
         <Link href="/">
